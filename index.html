@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>CM JS dev, requirement 8</title>
+        <link href="core/lib/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="core/lib/pace/1.0.2/themes/blue/pace-theme-mac-osx.css" rel="stylesheet" />
+		<script type="text/javascript" src="core/lib/pace/1.0.2/pace.min.js"></script>  
+        <script type="text/javascript" src="core/lib/require/2.1.14/require.js"></script>
+		<script src="app/js/requireConfig.js"></script>
+		<script type="text/javascript" src="app/js/main.js"></script>     
+
+    </head>
+    <body>
+        <div class="container" style="padding-top:30px">
+            <div>                
+                <h3>REQUIREMENT 8 - JSON TRANSLATOR</h3>
+                <label for="inputFile">INPUT JSON/JSONP FILE NAME: </label>
+                <div class="input-group">
+                    <input id="inputFile" type="text" class="form-control" placeHolder="current issue json(p) file name (Ex. error.jsonp, test.jsonp)"/>
+                    <span class="input-group-btn">
+                        <button id="loadingButton" class="btn btn-primary">Load the current issues list</button>
+                    </span>                        
+                </div>
+            </div>
+            <div id="results" style="display: none">   
+                <div data-bind="visible:ArrayOfModels().length, foreach: ArrayOfModels">
+                    <!-- Each issue should be rendered with the following template -->
+                    <div class="issue-template">                       
+                        <h3>
+                            <span data-bind="text:title"></span>
+                            -
+                            <span data-bind="if:status() === 'Resolved'">                             
+                                <span>Resolved</span>                                
+                                <span data-bind="timeago: beganAt"></span>
+                            </span>
+                            <span data-bind="ifnot:status() === 'Resolved'">                             
+                                <span>Begin</span>                                
+                                <span data-bind="timeago: beganAt"></span>
+                            </span>
+                        </h3>
+                        <p data-bind="text: description"></p>
+                        <div style="padding-left:50px">
+                            <p>Updates:</p>
+                            <!-- Each update should be rendered with the following template -->
+                            <div data-bind="foreach: updates" class="update-template">                    
+                                <p data-bind="text: update"></p>
+                                <em>
+                                    By
+                                    <span data-bind="text:by()"></span>                                    
+                                    <span data-bind="timeago:at"></span>                                  
+                                </em>
+                                <hr style="width:50%"/>
+                            </div>
+                        </div>
+                        <hr />
+                    </div>                
+                </div>
+                <!-- Render this if there are no issues returned -->
+                <div class="no-issues-template" data-bind="if:ArrayOfModels().length === 0">
+                        Everybody is happy!
+                </div>
+            </div>
+        </div>
+    </body> 
+</html>

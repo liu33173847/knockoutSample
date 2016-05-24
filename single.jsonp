@@ -1,0 +1,24 @@
+cb({
+      "id":3,
+      "description":"We forgot to turn on the SimCity servers. It will take us a couple of days to find the on switch. We don't care.",
+      "title":"No one can play our game!",
+      "beganAt":"2015-03-05 23:15 Z",
+      "resolvedAt":"2015-03-05 23:22 Z",
+      "status":"Resolved",
+      "updates":[
+         {
+            "id":8,
+            "by":"Mathew",
+            "avatar":"http://i3.campaignmonitor.com/assets/images/staff/mathewp.jpg?ver=5985",
+            "at":"2015-03-05 23:22 Z",
+            "update":"We plugged in some laptops, that should do it..."
+         },
+         {
+            "id":7,
+            "by":"Mathew",
+            "avatar":"http://i3.campaignmonitor.com/assets/images/staff/mathewp.jpg?ver=5985",
+            "at":"2015-03-05 23:21 Z",
+            "update":"Despite the huge amount of pre-release publicity and pre-orders, we didn't expect any one to try and play on launch day. How could we, it's not like we're a multinational video game company or anything"
+         }
+      ]
+   })
